@@ -71,7 +71,7 @@
                 $video = get_cfc_field('portrait', 'video', false, $key);
 
                 if (!empty($video)) { ?>
-                    <section data-duration="7" class="z-index-4">
+                    <section data-duration="10" class="z-index-4">
                         <div class="wrapper-img">
                             <video autoplay loop muted src="<?php the_cfc_field('portrait', 'video', false, $key); ?>"></video>
                         </div>
@@ -79,7 +79,7 @@
                     <?php
                 } else {
                     ?>
-                    <section data-duration="7" class="z-index-4">
+                    <section data-duration="10" class="z-index-4">
                         <div class="wrapper-img" style="background-image: url('<?php the_cfc_field('portrait', 'imagen-background', false, $key); ?>'); position: relative;
     background-color: rgb(0 0 0 / 100%);
     background-blend-mode: color;"> 
