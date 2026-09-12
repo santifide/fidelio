@@ -34,7 +34,7 @@ if (post_password_required()) {
 
     <?php endif; ?>
     <div class="wrapper-form" id="wrapper-form">
-    <img src="https://fidelio.com.ar/wp-content/uploads/2024/09/cerrar-e1726780378627.png" id="btnClose">
+    <img src="<?php echo esc_url(get_template_directory_uri() . '/assets/images/boton-cerrar.png'); ?>" id="btnClose" alt="Cerrar">
         <?php
         // Si los comentarios están cerrados y hay comentarios
         if (!comments_open() && get_comments_number()):

@@ -303,6 +303,7 @@ img#btnClose {
   z-index: 7;
   cursor: pointer;
   opacity: 0.6;
+  width: 50px;
 }
 
 h3#reply-title {
