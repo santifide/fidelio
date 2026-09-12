@@ -163,7 +163,7 @@
             }
         });
 
-        // --- Modificar estilos según parámetros w, h, o, s ---
+        // --- Modificar estilos según parámetros w, h, o, s, p y qrw ---
         document.addEventListener("DOMContentLoaded", function() {
             const search = window.location.search;
 
@@ -178,6 +178,8 @@
             const h = getParamValue('h');
             const o = getParamValue('o');
             const s = getParamValue('s');
+            const p = getParamValue('p');
+            const qrw = getParamValue('qrw');
 
             // Modificar width y height de las imágenes
             if (w || h) {
@@ -192,6 +194,21 @@
                 const style = document.createElement('style');
                 style.innerHTML = `.wrapper-img::before { opacity: ${parseInt(o, 10) / 100} !important; }`;
                 document.head.appendChild(style);
+            }
+
+            // Modificar el tamaño del texto de los comentarios en rem
+            if (p) {
+                document.querySelectorAll('.comment p').forEach(commentParagraph => {
+                    commentParagraph.style.fontSize = p + 'rem';
+                });
+            }
+
+            // Modificar el ancho del código QR en píxeles
+            if (qrw) {
+                const qr = document.getElementById('qr');
+                if (qr) {
+                    qr.style.width = qrw + 'px';
+                }
             }
 
             // Modificar overflow de .wrapper-section
