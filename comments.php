@@ -62,6 +62,36 @@ if (post_password_required()) {
     </div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const commentForm = document.getElementById('commentform');
+            const attachmentInput = document.getElementById('attachment');
+            const attachmentLabel = document.querySelector('.comment-form-attachment__label');
+
+            if (commentForm) {
+                commentForm.enctype = 'multipart/form-data';
+            }
+
+            if (!attachmentInput || !attachmentLabel) {
+                return;
+            }
+
+            let fileNotice = document.querySelector('.fidelio-attachment-selection');
+            if (!fileNotice) {
+                fileNotice = document.createElement('span');
+                fileNotice.className = 'fidelio-attachment-selection';
+                attachmentLabel.insertAdjacentElement('afterend', fileNotice);
+            }
+
+            attachmentInput.addEventListener('change', function () {
+                const count = attachmentInput.files.length;
+                fileNotice.textContent = count
+                    ? (count === 1 ? '1 foto seleccionada' : count + ' fotos seleccionadas')
+                    : 'Sin archivos seleccionados';
+            });
+        });
+    </script>
+
+    <script>
         // Función para aplicar el fade-out
         function fadeOutEffect(el) {
             let opacity = 1;
